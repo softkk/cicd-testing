@@ -1,3 +1,7 @@
+variable "gcp_auth_key" {
+  type     = string
+}
+
 provider "google" {
     credentials = file("hybridcloudpoc-sa-terraform.json")
     project     = "hybridcloudpoc"
