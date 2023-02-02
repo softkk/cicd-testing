@@ -7,8 +7,7 @@ pipeline {
                 echo 'Hello World2'
             }
         }
-    }
-    stage('Terraform Deployment') {
+        stage('Terraform Deployment') {
             steps {
                 withCredentials([file(credentialsId: 'gcp-terraform', variable: 'tf_auth_key')]) {
                     sh 'terraform init'
@@ -17,4 +16,5 @@ pipeline {
                 }
             }
         }
+    }
 }
