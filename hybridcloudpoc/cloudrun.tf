@@ -3,7 +3,7 @@ variable "tf_auth_key" {
 }
 
 provider "google" {
-    credentials = file("hybridcloudpoc-sa-terraform.json")
+    credentials = file(var.tf_auth_key)
     project     = "hybridcloudpoc"
     region      = "asia-east1"
 }
