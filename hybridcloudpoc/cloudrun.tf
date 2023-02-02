@@ -1,4 +1,4 @@
-variable "gcp_auth_key" {
+variable "tf_auth_key" {
   type     = string
 }
 

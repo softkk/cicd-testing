@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World2'
+            }
+        }
+    }
+    stage('Terraform Deployment') {
+            steps {
+                withCredentials([file(credentialsId: 'gcp-terraform', variable: 'tf_auth_key')]) {
+                    sh 'terraform init'
+                    sh 'terraform plan -var "tf_auth_key=${tf_auth_key}"'
+                    sh 'terraform apply -var "tf_auth_key=${tf_auth_key}" --auto-approve'
+                }
+            }
+        }
+}
