@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    tools {
+        terraform 'tf20207'
+    }
     stages {
         stage('Hello') {
             steps {
